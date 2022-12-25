@@ -14,7 +14,22 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": []
+    "commands": [],
+    "configuration": {
+      "title": "VSlack",
+      "properties": {
+        "vslack.userToken": {
+          "type": "string",
+          "default": "",
+          "description": "The user token that you generate from Slack"
+        },
+        "vslack.signingSecret": {
+          "type": "string",
+          "default": "",
+          "description": "The signing secret for Slack"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
