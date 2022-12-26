@@ -2,65 +2,56 @@
 
 Update your Slack status based on your activity in VSCode
 
-## Feature
+## The One Singular Feature
 
 - Show what file and what workspace you are working in
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+You need a Slack User Token and a Signing Secret.
+
+Go to https://api.slack.com/apps/ and press that shiny "Create New App" button
+![](https://cloud-izu52zfib-hack-club-bot.vercel.app/0image.png)
+
+Select the from "From Scratch" option:
+![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/0image.png)
+
+Input the name (just make something up) and input workspace that you want the extension to update your profile in: 
+![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/1image.png)
+
+Copy the Signing Secret on this section of the resulting page:
+![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/2image.png)
+
+Navigate to the "OAuth & Permissions" section of the sidebar:
+![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/3image.png)
+
+Scroll down the the "User Token Scopes" section:
+![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/4image.png)
+
+Add the following scopes:
+![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/5image.png)
+
+Scroll up to the "OAuth Tokens for Your Workspace" section and hit the "Install to Workspace" button:
+![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/6image.png)
+
+Accept on the following screen:
+![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/7image.png)
+
+Copy the User OAuth Token from the "OAuth Tokens for Your Workspace" section on the page that it redirects to:
+![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/8image.png)
+
+
+Navigate over to VSCode. Open the settings page (`Ctrl+,` or `Cmd+,`). Type `"vslack"` in the search bar.
+
+![](https://cloud-mpx2npspn-hack-club-bot.vercel.app/0image.png)
+
+Here, you will see two boxes corresponding to the Signing Secret and the User Token. Input the credentials that you copied from the previous steps here and press enter in each box.
+
+Restart VSCode and you're good to go!
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+* `vslack.userToken`: Slack User Token
+* `vslack.signingSecret`: Slack Signing Secret
 
-For example:
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
