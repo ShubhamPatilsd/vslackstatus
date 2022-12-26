@@ -12,14 +12,17 @@ const app = new App({
   token: vscode.workspace.getConfiguration("vslack").get("userToken"),
 });
 
+let orange = vscode.window.createOutputChannel("Orange");
+orange.show();
+//Write to output.
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
+  //Create output channel
 
-  vscode.window.showInformationMessage(vscode.workspace.name + "hi");
-
+  orange.show();
   const initialStatus = vscode.window.activeTextEditor?.document.fileName
     ? {
         profile: JSON.stringify({
@@ -58,13 +61,26 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(disposable);
 }
 
+function timeout(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 // this method is called when your extension is deactivated
-export function deactivate() {
-  app.client.users.profile.set({
+export async function deactivate() {
+  await timeout(2000);
+  const app = new App({
+    signingSecret: vscode.workspace
+      .getConfiguration("vslack")
+      .get("signingSecret"),
+    token: vscode.workspace.getConfiguration("vslack").get("userToken"),
+  });
+
+  await app.client.users.profile.set({
     profile: JSON.stringify({
       status_text: "",
       status_emoji: "",
-      status_expiration: 0,
     }),
   });
+
+  return undefined;
 }
