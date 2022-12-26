@@ -12,6 +12,10 @@ const app = new App({
   token: vscode.workspace.getConfiguration("vslack").get("userToken"),
 });
 
+const beforeStatus = app.client.users.profile.get().then((res) => {
+  return res.profile;
+});
+
 //Write to output.
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -65,6 +69,9 @@ function timeout(ms: number) {
 // this method is called when your extension is deactivated
 export async function deactivate() {
   await timeout(2000);
+
+  const status = await beforeStatus;
+
   const app = new App({
     signingSecret: vscode.workspace
       .getConfiguration("vslack")
@@ -74,8 +81,9 @@ export async function deactivate() {
 
   await app.client.users.profile.set({
     profile: JSON.stringify({
-      status_text: "",
-      status_emoji: "",
+      status_text: status?.status_text,
+      status_emoji: status?.status_emoji,
+      status_expiration: status?.status_expiration,
     }),
   });
 
