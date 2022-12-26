@@ -12,8 +12,6 @@ const app = new App({
   token: vscode.workspace.getConfiguration("vslack").get("userToken"),
 });
 
-let orange = vscode.window.createOutputChannel("Orange");
-orange.show();
 //Write to output.
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -22,7 +20,6 @@ export function activate(context: vscode.ExtensionContext) {
   // This line of code will only be executed once when your extension is activated
   //Create output channel
 
-  orange.show();
   const initialStatus = vscode.window.activeTextEditor?.document.fileName
     ? {
         profile: JSON.stringify({
