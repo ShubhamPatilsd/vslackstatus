@@ -3,8 +3,6 @@
 Update your Slack status based on your activity in VSCode
 <img src="https://cloud-otr2sd9a1-hack-club-bot.vercel.app/0image.png" align=center/>
 
-
-
 ## The One Singular Feature
 
 - Show what file and what workspace you are working in on your Slack status
@@ -60,4 +58,12 @@ Restart VSCode and you're good to go!
 * `vslack.userToken`: Slack User Token
 * `vslack.signingSecret`: Slack Signing Secret
 
+# Made for the Hack Club Community
 
+<img src="https://assets.hackclub.com/flag-standalone.png" align="center"/>
+
+<br>
+This extension was created for members of the Hack Club Slack. However, anyone is able to use it for their own workspaces!
+
+## What is [Hack Club](https://hackclub.com)? 
+Hack Club is a community of 20k+ teen coders from around the world. Join [our Slack](https://hackclub.com/slack/) to gain access to this community and talk with some really cool people!
