@@ -32,6 +32,7 @@
       }
     }
   },
+  "publisher":"ShubhamPatil",
   "scripts": {
     "vscode:prepublish": "yarn run package",
     "compile": "webpack",
