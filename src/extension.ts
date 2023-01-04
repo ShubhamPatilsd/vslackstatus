@@ -37,7 +37,9 @@ export function activate(context: vscode.ExtensionContext) {
       }
     : {
         profile: JSON.stringify({
-          status_text: `Idle in ${vscode.workspace.name}`,
+          status_text: vscode.workspace.name
+            ? `Idle in ${vscode.workspace.name}`
+            : `Idle in VSCode`,
           status_emoji: ":vsc:",
           status_expiration: 0,
         }),

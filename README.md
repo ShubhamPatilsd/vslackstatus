@@ -1,14 +1,20 @@
 # VSlack
 
 Update your Slack status based on your activity in VSCode
+<img src="https://cloud-otr2sd9a1-hack-club-bot.vercel.app/0image.png" align=center/>
+
+
 
 ## The One Singular Feature
 
-- Show what file and what workspace you are working in
+- Show what file and what workspace you are working in on your Slack status
+- Ex: `Editing package.json in advent_of_code_2022` 
 
 ## Requirements
 
-You need a Slack User Token and a Signing Secret.
+1. You need an emoji in your Slack workspace called `:vsc:` with the VSCode icon for the status to work.
+
+2. You need a Slack User Token and a Signing Secret.
 
 Go to https://api.slack.com/apps/ and press that shiny "Create New App" button
 ![](https://cloud-izu52zfib-hack-club-bot.vercel.app/0image.png)
