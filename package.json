@@ -1,6 +1,6 @@
 {
-  "name": "vslack",
-  "displayName": "vslack",
+  "name": "vslackstatus",
+  "displayName": "vslackstatus",
   "description": "Update your VSCode status to Slack!",
   "version": "0.0.1",
   "engines": {
@@ -17,14 +17,14 @@
   "contributes": {
     "commands": [],
     "configuration": {
-      "title": "VSlack",
+      "title": "VSlackStatus",
       "properties": {
-        "vslack.userToken": {
+        "vslackstatus.userToken": {
           "type": "string",
           "default": "",
           "description": "The user token that you generate from Slack"
         },
-        "vslack.signingSecret": {
+        "vslackstatus.signingSecret": {
           "type": "string",
           "default": "",
           "description": "The signing secret for Slack"
@@ -32,7 +32,7 @@
       }
     }
   },
-  "publisher":"ShubhamPatil",
+  "publisher": "ShubhamPatil",
   "scripts": {
     "vscode:prepublish": "yarn run package",
     "compile": "webpack",

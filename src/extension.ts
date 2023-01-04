@@ -7,9 +7,9 @@ import { App } from "@slack/bolt";
 
 const app = new App({
   signingSecret: vscode.workspace
-    .getConfiguration("vslack")
+    .getConfiguration("vslackstatus")
     .get("signingSecret"),
-  token: vscode.workspace.getConfiguration("vslack").get("userToken"),
+  token: vscode.workspace.getConfiguration("vslackstatus").get("userToken"),
 });
 
 const beforeStatus = app.client.users.profile.get().then((res) => {
@@ -76,9 +76,9 @@ export async function deactivate() {
 
   const app = new App({
     signingSecret: vscode.workspace
-      .getConfiguration("vslack")
+      .getConfiguration("vslackstatus")
       .get("signingSecret"),
-    token: vscode.workspace.getConfiguration("vslack").get("userToken"),
+    token: vscode.workspace.getConfiguration("vslackstatus").get("userToken"),
   });
 
   await app.client.users.profile.set({

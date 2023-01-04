@@ -1,4 +1,4 @@
-# VSlack
+# VSlackStatus
 
 Update your Slack status based on your activity in VSCode
 
@@ -55,7 +55,7 @@ Copy the Signing Secret on this section of the resulting page:
 ![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/8image.png)
 
 
-<p>Navigate over to VSCode. Open the settings page (`Ctrl+,` or `Cmd+,`). Type `"vslack"` in the search bar.</p>
+<p>Navigate over to VSCode. Open the settings page (`Ctrl+,` or `Cmd+,`). Type `"vslackstatus"` in the search bar.</p>
 
 ![](https://cloud-mpx2npspn-hack-club-bot.vercel.app/0image.png)
 
@@ -65,8 +65,8 @@ Restart VSCode and you're good to go!
 
 ## Extension Settings
 
-* `vslack.userToken`: Slack User Token
-* `vslack.signingSecret`: Slack Signing Secret
+* `vslackstatus.userToken`: Slack User Token
+* `vslackstatus.signingSecret`: Slack Signing Secret
 
 # Made for the Hack Club Community
 
