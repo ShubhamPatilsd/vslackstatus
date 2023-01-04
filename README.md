@@ -5,6 +5,12 @@ Update your Slack status based on your activity in VSCode
 <p align="center">
 <img src="https://cloud-otr2sd9a1-hack-club-bot.vercel.app/0image.png" /></p>
 
+
+## Installation
+
+https://marketplace.visualstudio.com/items?itemName=ShubhamPatil.vslackstatus
+
+
 ## The One Singular Feature
 
 - Show what file and what workspace you are working in on your Slack status
