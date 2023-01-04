@@ -6,6 +6,7 @@
   "engines": {
     "vscode": "^1.69.0"
   },
+  "icon": "images/logo.png",
   "repository": "https://github.com/ShubhamPatilsd/vslackstatus",
   "categories": [
     "Other"
