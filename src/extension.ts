@@ -51,9 +51,13 @@ export function activate(context: vscode.ExtensionContext) {
     if (editor?.document.fileName) {
       app.client.users.profile.set({
         profile: JSON.stringify({
-          status_text: `Editing ${
-            path.parse(editor?.document.fileName || "").base || ""
-          } in ${vscode.workspace.name}`,
+          status_text: vscode.workspace.name
+            ? `Editing ${
+                path.parse(editor?.document.fileName || "").base || ""
+              } in ${vscode.workspace.name}`
+            : `Editing ${
+                path.parse(editor?.document.fileName || "").base || ""
+              }`,
           status_emoji: ":vsc:",
           status_expiration: 0,
         }),
