@@ -34,20 +34,24 @@ Copy the Signing Secret on this section of the resulting page:
 
 ![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/3image.png)
 
-Scroll down the the "User Token Scopes" section:
+<p>Scroll down to the "User Token Scopes" section:</p>
+
 ![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/4image.png)
 
-Add the following scopes:
+<p>Add the following scopes:</p>
+
 ![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/5image.png)
 
 <p>Scroll up to the "OAuth Tokens for Your Workspace" section and hit the "Install to Workspace" button:</p>
 
 ![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/6image.png)
 
-Accept on the following screen:
+<p>Accept on the following screen:</p>
+
 ![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/7image.png)
 
-Copy the User OAuth Token from the "OAuth Tokens for Your Workspace" section on the page that it redirects to:
+<p>Copy the User OAuth Token from the "OAuth Tokens for Your Workspace" section on the page that it redirects to:</p>
+
 ![](https://cloud-fwxcwxvaq-hack-club-bot.vercel.app/8image.png)
 
 
