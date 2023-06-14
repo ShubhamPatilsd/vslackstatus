@@ -13,7 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
   // This line of code will only be executed once when your extension is activated
   //Create output channel
 
-  const socket = io("http://localhost:3000", {
+  const socket = io("https://vslackstatus-server-production.up.railway.app/", {
     reconnectionDelayMax: 10000,
     auth: {
       token: vscode.workspace.getConfiguration("vslackstatus").get("userToken"),
