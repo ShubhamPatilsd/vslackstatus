@@ -18,7 +18,7 @@ https://marketplace.visualstudio.com/items?itemName=ShubhamPatil.vslackstatus
 
 ## Requirements
 
-1. You need an emoji in your Slack workspace called `:vsc:` with the VSCode icon for the status to work.
+1. You need an emoji in your Slack workspace called `:vsc:` with the VSCode icon for the status to work if you want this to work out of the box. You can configure the specific code you want in the settings.
 
 2. You need a Slack User Token and a Signing Secret.
 
@@ -73,6 +73,7 @@ Restart VSCode and you're good to go!
 
 * `vslackstatus.userToken`: Slack User Token
 * `vslackstatus.signingSecret`: Slack Signing Secret
+* `vslackstatus.emojiCode`: Slack emoji code you want to use (e.g. :vsc:, :vscode:). Defaults to :vsc:
 
 # Made for the Hack Club Community
 
