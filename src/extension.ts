@@ -3,18 +3,7 @@
 import * as vscode from "vscode";
 import * as path from "path";
 
-import { App } from "@slack/bolt";
-
-const app = new App({
-  signingSecret: vscode.workspace
-    .getConfiguration("vslackstatus")
-    .get("signingSecret"),
-  token: vscode.workspace.getConfiguration("vslackstatus").get("userToken"),
-});
-
-const beforeStatus = app.client.users.profile.get().then((res) => {
-  return res.profile;
-});
+import { io } from "socket.io-client";
 
 //Write to output.
 // this method is called when your extension is activated
@@ -24,44 +13,41 @@ export function activate(context: vscode.ExtensionContext) {
   // This line of code will only be executed once when your extension is activated
   //Create output channel
 
-  const initialStatus = vscode.window.activeTextEditor?.document.fileName
-    ? {
-        profile: JSON.stringify({
-          status_text: `Editing ${
-            path.parse(vscode.window.activeTextEditor.document.fileName || "")
-              .base
-          } in ${vscode.workspace.name}`,
-          status_emoji: ":vsc:",
-          status_expiration: 0,
-        }),
-      }
-    : {
-        profile: JSON.stringify({
-          status_text: vscode.workspace.name
-            ? `Idle in ${vscode.workspace.name}`
-            : `Idle in VSCode`,
-          status_emoji: ":vsc:",
-          status_expiration: 0,
-        }),
-      };
+  const socket = io("http://localhost:3000", {
+    reconnectionDelayMax: 10000,
+    auth: {
+      token: vscode.workspace.getConfiguration("vslackstatus").get("userToken"),
+      signingSecret: vscode.workspace
+        .getConfiguration("vslackstatus")
+        .get("signingSecret"),
+    },
+    query: {
+      emoji: vscode.workspace.getConfiguration("vslackstatus").get("emojiCode"),
+    },
+  });
 
-  app.client.users.profile.set(initialStatus);
+  vscode.window.showInformationMessage("Beaming Status to Slack");
+
+  const initialStatus = vscode.window.activeTextEditor?.document.fileName
+    ? `Editing ${
+        path.parse(vscode.window.activeTextEditor.document.fileName || "").base
+      } in ${vscode.workspace.name}`
+    : vscode.workspace.name
+    ? `Idle in ${vscode.workspace.name}`
+    : `Idle in VSCode`;
+
+  socket.emit("updateStatus", initialStatus);
 
   let disposable = vscode.window.onDidChangeActiveTextEditor((editor) => {
     if (editor?.document.fileName) {
-      app.client.users.profile.set({
-        profile: JSON.stringify({
-          status_text: vscode.workspace.name
-            ? `Editing ${
-                path.parse(editor?.document.fileName || "").base || ""
-              } in ${vscode.workspace.name}`
-            : `Editing ${
-                path.parse(editor?.document.fileName || "").base || ""
-              }`,
-          status_emoji: ":vsc:",
-          status_expiration: 0,
-        }),
-      });
+      socket.emit(
+        "updateStatus",
+        vscode.workspace.name
+          ? `Editing ${
+              path.parse(editor?.document.fileName || "").base || ""
+            } in ${vscode.workspace.name}`
+          : `Editing ${path.parse(editor?.document.fileName || "").base || ""}`
+      );
     }
   });
 
@@ -74,24 +60,7 @@ function timeout(ms: number) {
 
 // this method is called when your extension is deactivated
 export async function deactivate() {
-  await timeout(2000);
-
-  const status = await beforeStatus;
-
-  const app = new App({
-    signingSecret: vscode.workspace
-      .getConfiguration("vslackstatus")
-      .get("signingSecret"),
-    token: vscode.workspace.getConfiguration("vslackstatus").get("userToken"),
-  });
-
-  await app.client.users.profile.set({
-    profile: JSON.stringify({
-      status_text: status?.status_text,
-      status_emoji: status?.status_emoji,
-      status_expiration: status?.status_expiration,
-    }),
-  });
+  // socket.disconnect();
 
   return undefined;
 }

@@ -25,6 +25,11 @@
           "default": "",
           "description": "The user token that you generate from Slack"
         },
+        "vslackstatus.emojiCode": {
+          "type": "string",
+          "default": ":vsc:",
+          "description": "What your VSCode emoji is called in your workspace (e.g. :vsc: :vscode:)"
+        },
         "vslackstatus.signingSecret": {
           "type": "string",
           "default": "",
@@ -62,6 +67,7 @@
     "webpack-cli": "^4.8.0"
   },
   "dependencies": {
-    "@slack/bolt": "^3.12.2"
+    "@slack/bolt": "^3.12.2",
+    "socket.io-client": "^4.6.2"
   }
 }
